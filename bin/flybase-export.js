@@ -36,27 +36,23 @@ var argv = require('optimist')
 	.argv;
 
 async function main() {
-	console.log( argv );
 	const file = path.resolve(argv.json);
-	let data = []
+	let data = [];
 	const flybaseRef = flybase.init(argv.flybase_app, argv.flybase_collection, argv.flybase_key );
-	flybaseRef.on("connect", async function (data ){
-		try {
-			const snapshot = await flybaseRef.once('value');
-			await snapshot.forEach( function (row){
-				console.log( row.value() )
-				data.push( row.value() );
-			});
-			console.log("done");
-			fs.writeFile (file, JSON.stringify(data), function(err) {
-				if (err) throw err;
-				console.log('complete');
-				process.exit();
-			});
-		} catch(error) {
-			console.error(error);
-		}
-	});
+	try {
+		const snapshot = await flybaseRef.once('value');
+		await snapshot.forEach( function (row){
+			data.push( row.value() );
+		});
+		console.log("done");
+		fs.writeFile (file, JSON.stringify(data), function(err) {
+			if (err) throw err;
+			console.log('export completed');
+			process.exit();
+		});
+	} catch(error) {
+		console.error(error);
+	}
 }
 
 main();

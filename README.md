@@ -7,11 +7,11 @@ breaks the JSON into smaller chunks and uploads them individually through the Fl
 
 Install the flybase-export module globally:
 
-    $ npm install -g flybase-export
+    $ npm install -g flybaseio/flybase-export
 
 or install it locally and add it to your path:
 
-    $ npm install flybase-export
+    $ npm install flybaseio/flybase-export
     $ export PATH=$PATH:`npm bin`
 
 ## Usage
@@ -29,5 +29,4 @@ or install it locally and add it to your path:
 ## Example
 
     $ flybase-export --flybase_key API-KEY --flybase-app Test --flybase_collection Stuff --json test.json
-    exporting [=================================================] 100% (9431/9431)
     export completed.
