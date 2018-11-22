@@ -1,0 +1,25 @@
+{
+	"name": "flybase-export",
+	"description": "npm config for Flybase Export",
+	"version": "1.1.3",
+	"dependencies": {
+		"co": "^4.6.0",
+		"flybase": "~1.5.5",
+		"optimist": "~0.5.2",
+		"progress": "~0.1.0"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/flybaseio/flybase-export.git"
+	},
+	"keywords": [
+		"flybase",
+		"import"
+	],
+	"author": "Data McFly",
+	"license": "BSD",
+	"bin": {
+		"flybase-export": "./bin/flybase-export.js"
+	}
+}
